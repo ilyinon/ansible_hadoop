@@ -1,0 +1,12 @@
+---
+
+- group: name={{ hadoop_group }} state=present
+- user:  name={{ hadoop_user }} comment="Hadoop user" group={{ hadoop_group }} shell=/bin/bash
+
+
+- name: "Build hosts file"
+  lineinfile: dest=/etc/hosts regexp='{{ item.ip }}' line="{{ item.ip }} {{ item.hostname }}" state=present 
+  with_items: "{{ nodes }}"
+
+- lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_HOME=" line="export HADOOP_HOME=/usr/local/hadoop"
+- lineinfile: dest=/home/hadoop/.bashrc regexp="PATH=" line="export PATH=$PATH:$HADOOP_HOME/bin"
