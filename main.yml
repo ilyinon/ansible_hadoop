@@ -5,7 +5,7 @@
   sudo: yes
 
   roles:
-    - main_node
+#    - main_node
 
 
 - name: Install hadoop env
@@ -14,9 +14,8 @@
  
 
   roles:
-    - thirdparty
-#    - java
-#    - hadoop
+#    - thirdparty
+    - hadoop
 #    - hbase
   environment:
     http_proxy: http://{{ proxy_server }}:3128

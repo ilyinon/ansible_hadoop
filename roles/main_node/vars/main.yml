@@ -1,0 +1,5 @@
+---
+
+hadoop_url: http://apache-mirror.rbc.ru/pub/apache/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz
+hadoop_filename: hadoop-2.6.5.tar.gz
+hadoop_sha256: 001ad18d4b6d0fe542b15ddadba2d092bc97df1c4d2d797381c8d12887691898

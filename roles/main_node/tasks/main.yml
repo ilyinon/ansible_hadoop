@@ -7,3 +7,4 @@
     name: squid
     state: started
     enabled: yes
+

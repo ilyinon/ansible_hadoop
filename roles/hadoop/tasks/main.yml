@@ -1,0 +1,22 @@
+---
+
+
+- name: download hadoop
+  get_url:
+    url: "{{ hadoop_url }}"
+    dest: /home/{{ hadoop_user }}/
+    checksum: sha256:"{{ hadoop_sha256 }}"
+
+- file: 
+    path: /home/{{ hadoop_user }}/{{ hadoop_filename }}
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+    mode: 0644
+
+#- name: Copy hadoop archive
+#  shell: scp /u02/files/"{{ hadoop_filename }}" centos@{{ item.ip }}:/home/{{ hadoop_user }}/"{{ hadoop_filename }}"
+#  with_items: "{{ nodes }}"
+
+#  lineinfile: dest=/etc/hosts regexp='{{ item.ip }}' line="{{ item.ip }} {{ item.hostname }}" state=present
+#  with_items: "{{ nodes }}"
+
