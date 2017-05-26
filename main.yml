@@ -1,0 +1,10 @@
+---
+- name: Install hadoop env
+  hosts: hadoop
+  sudo: yes
+
+  roles:
+    - thirdparty
+#    - java
+#    - hadoop
+#    - hbase

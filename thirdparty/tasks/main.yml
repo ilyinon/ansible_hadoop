@@ -1,0 +1,5 @@
+---
+#- include_vars: ""
+
+- group: name={{ hadoop_group }} state=present
+
