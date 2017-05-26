@@ -1,6 +1,4 @@
 ---
-hadoop_user: hadoop
-hadoop_group: hadoop
 nodes:
   - hostname: hadoop1
     ip: 10.10.253.30
