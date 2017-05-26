@@ -8,10 +8,29 @@
     checksum: sha256:"{{ hadoop_sha256 }}"
 
 - file: 
-    path: /home/{{ hadoop_user }}/{{ hadoop_filename }}
+    path: /home/{{ hadoop_user }}/hadoop-{{ hadoop_version }}.tar.gz
     owner: "{{ hadoop_user }}"
     group: "{{ hadoop_group }}"
     mode: 0644
+
+- file:
+    path: /u02/
+    state: directory
+    mode: 0755
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
+- unarchive:
+    src: /home/{{ hadoop_user }}/hadoop-{{ hadoop_version }}.tar.gz
+    dest: "/u02/"
+    copy: no
+
+- file:
+    path: /u02/hadoop-{{ hadoop_version }}
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+    recurse: yes
+
 
 #- name: Copy hadoop archive
 #  shell: scp /u02/files/"{{ hadoop_filename }}" centos@{{ item.ip }}:/home/{{ hadoop_user }}/"{{ hadoop_filename }}"
