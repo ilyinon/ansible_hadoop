@@ -32,10 +32,31 @@
     recurse: yes
 
 
-#- name: Copy hadoop archive
-#  shell: scp /u02/files/"{{ hadoop_filename }}" centos@{{ item.ip }}:/home/{{ hadoop_user }}/"{{ hadoop_filename }}"
-#  with_items: "{{ nodes }}"
+- template:
+    src: core-site.xml.template
+    dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/core-site.xml
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0644
 
-#  lineinfile: dest=/etc/hosts regexp='{{ item.ip }}' line="{{ item.ip }} {{ item.hostname }}" state=present
-#  with_items: "{{ nodes }}"
+- template:
+    src: yarn-site.xml.template
+    dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/yarn-site.xml
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0644
+
+- template:
+    src: mapred-site.xml.template
+    dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/mapred-site.xml
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0644
+
+- template:
+    src: hdfs-site.xml.template
+    dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/hdfs-site.xml
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0644
 
