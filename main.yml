@@ -1,4 +1,13 @@
 ---
+
+- name: Install main node env
+  hosts: main_node 
+  sudo: yes
+
+  roles:
+    - main_node
+
+
 - name: Install hadoop env
   hosts: hadoop
   sudo: yes
@@ -9,4 +18,7 @@
 #    - java
 #    - hadoop
 #    - hbase
+  environment:
+    http_proxy: http://{{ proxy_server }}:3128
+    https_proxy: http://{{ proxy_server }}:3128
 

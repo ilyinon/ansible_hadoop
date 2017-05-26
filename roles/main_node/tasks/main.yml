@@ -1,0 +1,9 @@
+---
+
+- name: Add proxy server
+  yum: name=squid state=latest
+
+- service:
+    name: squid
+    state: started
+    enabled: yes

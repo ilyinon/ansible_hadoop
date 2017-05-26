@@ -10,3 +10,13 @@
 
 - lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_HOME=" line="export HADOOP_HOME=/usr/local/hadoop"
 - lineinfile: dest=/home/hadoop/.bashrc regexp="PATH=" line="export PATH=$PATH:$HADOOP_HOME/bin"
+
+
+- lineinfile: dest=/etc/yum.conf line="sslverify=false"
+
+- name: Add EPEL
+  yum: name=epel-release state=latest 
+  
+
+- name: Add java-1.8.0-openjdk 
+  yum: name=java-1.8.0-openjdk state=latest
