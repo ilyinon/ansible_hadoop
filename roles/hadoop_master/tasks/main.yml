@@ -28,4 +28,20 @@
     owner:  "{{ hadoop_user }}"
     mode: 0644
 
+- name: added master
+  shell: echo "hadoop1" > /u02/hadoop-{{ hadoop_version }}/etc/hadoop/masters
+
+- file:
+    path: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/masters
+    state: file
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
+
+- template:
+    src: slaves.template
+    dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/slaves
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0644
 

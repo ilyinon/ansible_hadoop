@@ -22,8 +22,16 @@
     http_proxy: http://{{ proxy_server }}:3128
     https_proxy: http://{{ proxy_server }}:3128
 
+- name: configure hadoop master
+  hosts: main_node
+  sudo: yes
+
   roles:
     - hadoop_master
+
+- name: configure hadoop slaves
+  hosts: slave_node
+  sudo: yes
 
   roles: 
     - hadoop_slave

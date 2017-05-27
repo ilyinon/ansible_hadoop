@@ -25,10 +25,6 @@
     <name>dfs.namenode.name.dir</name>
     <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/namenode</value>
   </property>
-  <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_store/hdfs/datanode</value>
-  </property>
 </configuration>
 
 
