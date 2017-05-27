@@ -35,6 +35,12 @@
     owner: "{{ hadoop_user }}"
     group: "{{ hadoop_group }}"
 
+- template:
+    src: ssh_config.template
+    dest: /home/{{ hadoop_user}}/.ssh/config
+    group: "{{ hadoop_group }}"
+    owner:  "{{ hadoop_user }}"
+    mode: 0400
 
 
 #- name: Add public key

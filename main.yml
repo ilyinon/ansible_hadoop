@@ -13,7 +13,7 @@
  
 
   roles:
-#    - thirdparty
+    - thirdparty
 #    - hadoop
 #    - hadoop_master
 #    - hadoop_slave
