@@ -23,11 +23,12 @@
   </property>
   <property>
     <name>dfs.namenode.name.dir</name>
-    <value>file:/usr/local/hadoop/hadoop_data/hdfs/namenode</value>
+    <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/namenode</value>
   </property>
   <property>
     <name>dfs.datanode.data.dir</name>
-    <value>file:/usr/local/hadoop/hadoop_store/hdfs/datanode</value>
+    <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_store/hdfs/datanode</value>
   </property>
 </configuration>
+
 
