@@ -21,6 +21,7 @@
     owner:  "{{ hadoop_user }}"
     mode: 0644
 
+
 - template:
     src: hdfs-site.xml.template
     dest: /u02/hadoop-{{ hadoop_version }}/etc/hadoop/hdfs-site.xml

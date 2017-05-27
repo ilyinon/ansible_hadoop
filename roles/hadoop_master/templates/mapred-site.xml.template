@@ -18,8 +18,8 @@
 
 <configuration>
   <property>
-    <name>mapred.job.tracker</name>
-    <value>hadoop1</value>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
   </property>
 </configuration>
 

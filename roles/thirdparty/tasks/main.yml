@@ -55,6 +55,7 @@
 
 - lineinfile: dest=/home/hadoop/.bashrc regexp="JAVA_HOME=" line="export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk"
 - lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_HOME=" line="export HADOOP_HOME=/u02/hadoop-{{ hadoop_version }}"
+- lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_INSTALL=" line="export HADOOP_INSTALL=/u02/hadoop-{{ hadoop_version }}"
 - lineinfile: dest=/home/hadoop/.bashrc regexp="PATH=" line="export PATH=$PATH:$HADOOP_HOME/bin"
 - lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_MAPRED_HOME=" line="export HADOOP_MAPRED_HOME=$HADOOP_HOME"
 - lineinfile: dest=/home/hadoop/.bashrc regexp="HADOOP_COMMON_HOME=" line="export HADOOP_COMMON_HOME=$HADOOP_HOME"

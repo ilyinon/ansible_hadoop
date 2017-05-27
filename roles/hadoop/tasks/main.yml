@@ -45,4 +45,11 @@
     owner: "{{ hadoop_user }}"
     group: "{{ hadoop_group }}"
 
+- file:
+    path: /u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/checkpoint
+    state: directory
+    mode: 0755
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
 
