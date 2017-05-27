@@ -14,8 +14,10 @@
  
 
   roles:
-    - thirdparty
+#    - thirdparty
 #    - hadoop
+    - hadoop_master
+    - hadoop_slave
 #    - hbase
   environment:
     http_proxy: http://{{ proxy_server }}:3128

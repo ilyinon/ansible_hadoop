@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<?xml version="1.0"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,22 +12,26 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
   <property>
-    <name>dfs.replication</name>
-    <value>2</value>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
   </property>
   <property>
-    <name>dfs.namenode.name.dir</name>
-    <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/namenode</value>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value> org.apache.hadoop.mapred.ShuffleHandler</value>
   </property>
   <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>file:/u02/hadoop-{{ hadoop_version }}/hadoop_store/hdfs/datanode</value>
+    <name>yarn.resourcemanager.resource-tracker.address</name>
+    <value>hadoop1:8025</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>hadoop1:8030</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.address</name>
+    <value>hadoop1:8050</value>
   </property>
 </configuration>
-
 
