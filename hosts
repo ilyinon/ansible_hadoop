@@ -16,4 +16,11 @@ hadoop1
 ansible_ssh_user=centos
 ansible_ssh_private_key_file=/home/centos/.ssh/id_rsa
 
+[slave_node]
+hadoop2
+hadoop3
+
+[slave_node:vars]
+ansible_ssh_user=centos
+ansible_ssh_private_key_file=/home/centos/.ssh/id_rsa
 
