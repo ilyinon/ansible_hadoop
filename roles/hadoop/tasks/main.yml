@@ -60,3 +60,18 @@
     owner:  "{{ hadoop_user }}"
     mode: 0644
 
+- file:
+    path: /u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/namenode
+    state: directory
+    mode: 0755
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
+- file:
+    path: /u02/hadoop-{{ hadoop_version }}/hadoop_data/hdfs/datanode
+    state: directory
+    mode: 0755
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
+
