@@ -11,6 +11,37 @@
     ssh_key_file: .ssh/id_rsa
     password: $6$fY.WgYz2$sd/p3MR5rCwPVvNFMryF20ZgCZ2g7RCrtQSplPiBnBWXErOC0UQ5mdLOWKXEbCfNKT/HArxO0yNNCVDkoW5vU1
 
+#- name: add public key
+#  authorized_key: user="{{ hadoop_user }}" key="{{ lookup('file', '/home/{{ hadoop_user}}/.ssh/'  + 'id_rsa.pub') }}"
+
+- name: "register public key"
+  shell: cat /home/{{ hadoop_user}}/.ssh/id_rsa.pub
+  delegate_to: "{{ item.ip }}"
+  register: pub_key
+  with_items: "{{ nodes }}"
+
+### TODO: delete depends on number of nodes
+- name: add to auth
+  shell: echo "{{ pub_key.results[0].stdout }}" > /home/{{ hadoop_user}}/.ssh/authorized_keys |
+         echo "{{ pub_key.results[1].stdout }}" >> /home/{{ hadoop_user}}/.ssh/authorized_keys |
+         echo "{{ pub_key.results[2].stdout }}" >> /home/{{ hadoop_user}}/.ssh/authorized_keys
+         
+  with_items: pub_key
+
+- file:
+    path: /home/{{ hadoop_user}}/.ssh/authorized_keys
+    state: file
+    mode: 0600
+    owner: "{{ hadoop_user }}"
+    group: "{{ hadoop_group }}"
+
+
+
+#- name: Add public key
+#  authorized_key: user="{{ hadoop_user }}"  key="{{ lookup('file', '/home/{{ hadoop_user}}/.ssh/id_rsa.pub') }}"
+#  delegate_to: "{{ item.ip }}"
+#  with_items: "{{ nodes }}"
+#- debug: msg=" Key is {{ key }}"
 
 - name: "Build hosts file"
   lineinfile: dest=/etc/hosts regexp='{{ item.ip }}' line="{{ item.ip }} {{ item.hostname }}" state=present 
