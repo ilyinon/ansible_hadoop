@@ -1,7 +1,15 @@
 ---
 
 - group: name={{ hadoop_group }} state=present
-- user:  name={{ hadoop_user }} comment="Hadoop user" group={{ hadoop_group }} shell=/bin/bash
+- user:  
+    name: "{{ hadoop_user }}" 
+    comment: "Hadoop user" 
+    group: "{{ hadoop_group }}" 
+    shell: /bin/bash
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+    password: $6$fY.WgYz2$sd/p3MR5rCwPVvNFMryF20ZgCZ2g7RCrtQSplPiBnBWXErOC0UQ5mdLOWKXEbCfNKT/HArxO0yNNCVDkoW5vU1
 
 
 - name: "Build hosts file"
