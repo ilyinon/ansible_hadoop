@@ -5,7 +5,7 @@
   sudo: yes
 
   roles:
-#    - main_node
+    - main_node
 
 - name: Install env
   hosts: hadoop
