@@ -7,7 +7,6 @@
   roles:
 #    - main_node
 
-
 - name: Install hadoop env
   hosts: hadoop
   sudo: yes
@@ -16,10 +15,15 @@
   roles:
 #    - thirdparty
 #    - hadoop
-    - hadoop_master
-    - hadoop_slave
+#    - hadoop_master
+#    - hadoop_slave
 #    - hbase
   environment:
     http_proxy: http://{{ proxy_server }}:3128
     https_proxy: http://{{ proxy_server }}:3128
 
+  roles:
+    - hadoop_master
+
+  roles: 
+    - hadoop_slave
