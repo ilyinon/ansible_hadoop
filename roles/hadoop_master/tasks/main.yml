@@ -45,3 +45,13 @@
     owner:  "{{ hadoop_user }}"
     mode: 0644
 
+
+- name: format hdfs 
+  shell: source ~/.bashrc && /u02/hadoop-{{ hadoop_version }}/bin/hdfs namenode -format
+  become: yes
+  become_user: "{{ hadoop_user }}"
+
+- name: run hadoop
+  shell: source ~/.bashrc && /u02/hadoop-{{ hadoop_version }}/sbin/start-all.sh
+  become: yes
+  become_user: "{{ hadoop_user }}"

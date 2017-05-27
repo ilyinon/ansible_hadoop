@@ -14,6 +14,7 @@
 
   roles:
     - thirdparty
+    - hadoop
   environment:
     http_proxy: http://{{ proxy_server }}:3128
     https_proxy: http://{{ proxy_server }}:3128
@@ -25,6 +26,5 @@
 
 
   roles:
-    - hadoop
     - hadoop_slave
     - hadoop_master
